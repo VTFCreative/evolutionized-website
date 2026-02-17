@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolutionized — Athletic Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Darker+Grotesque:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --black: #0A0A0A;
+            --gray-light: #F5F5F7;
+            --gray-mid: #86868B;
+            --accent: #0066CC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--black);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.85;
+        }
+
+        /* Hero Video Section */
+        .hero-video {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .video-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.375rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: var(--white);
+            color: var(--black);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 5rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-mid);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: var(--gray-mid);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Video Feature Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .video-card {
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--gray-light);
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .video-card.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .video-card:nth-child(1) { animation-delay: 0.1s; }
+        .video-card:nth-child(2) { animation-delay: 0.2s; }
+        .video-card:nth-child(3) { animation-delay: 0.3s; }
+        .video-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .video-card:hover {
+            transform: scale(1.02);
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .video-card-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            z-index: 2;
+            color: var(--white);
+        }
+
+        .video-card-title {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .video-card-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Programs Section - Clean Cards */
+        .programs-clean {
+            background: var(--gray-light);
+            padding: 8rem 3rem;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-clean-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .program-clean-card.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .program-clean-card:nth-child(1) { animation-delay: 0.1s; }
+        .program-clean-card:nth-child(2) { animation-delay: 0.2s; }
+        .program-clean-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .program-clean-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .program-icon-minimal {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .program-clean-title {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .program-clean-desc {
+            font-size: 1rem;
+            color: var(--gray-mid);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .program-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .program-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Holiday Video Banner */
+        .holiday-video-banner {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .holiday-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .holiday-video-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.5);
+            z-index: 1;
+        }
+
+        .holiday-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .holiday-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .holiday-content h2 {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .holiday-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 6rem 3rem;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .stat-item.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-family: 'Darker Grotesque', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 3rem 3rem;
+            background: var(--white);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray-mid);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .video-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .holiday-content h2 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Evolutionized</div>
+            <ul>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#holidays">Holidays</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Video Section -->
+    <section class="hero-video">
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="https://cdn.pixabay.com/video/2023/07/26/173257-850269859_large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Elite Athletic Training</div>
+            <h1 class="hero-title">Transform Your Performance</h1>
+            <p class="hero-description">World-class coaching designed for athletes who refuse to settle for average</p>
+            <div class="hero-cta-group">
+                <a href="#programs" class="cta-primary">Explore Programs</a>
+                <a href="#contact" class="cta-secondary">Book Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Grid Section -->
+    <section class="content-section">
+        <div class="section-header">
+            <div class="section-eyebrow">Training Excellence</div>
+            <h2 class="section-title">See What Sets Us Apart</h2>
+            <p class="section-description">Experience our approach through the athletes we've transformed</p>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <video class="video-card-placeholder" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause()">
+                    <source src="https://cdn.pixabay.com/video/2022/11/08/138395-768995933_large.mp4" type="video/mp4">
+                </video>
+                <div class="video-card-content">
+                    <h3 class="video-card-title">Speed Training</h3>
+                    <p class="video-card-desc">Explosive power development</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video class="video-card-placeholder" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause()">
+                    <source src="https://cdn.pixabay.com/video/2023/08/06/174898-852813788_large.mp4" type="video/mp4">
+                </video>
+                <div class="video-card-content">
+                    <h3 class="video-card-title">Strength Conditioning</h3>
+                    <p class="video-card-desc">Build athletic power</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video class="video-card-placeholder" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause()">
+                    <source src="https://cdn.pixabay.com/video/2021/08/20/85997-589931046_large.mp4" type="video/mp4">
+                </video>
+                <div class="video-card-content">
+                    <h3 class="video-card-title">Agility Work</h3>
+                    <p class="video-card-desc">Movement mastery</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <video class="video-card-placeholder" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause()">
+                    <source src="https://cdn.pixabay.com/video/2020/09/17/51219-458867228_large.mp4" type="video/mp4">
+                </video>
+                <div class="video-card-content">
+                    <h3 class="video-card-title">Skills Training</h3>
+                    <p class="video-card-desc">Sport-specific development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-clean" id="programs">
+        <div class="section-header">
+            <div class="section-eyebrow">Programs</div>
+            <h2 class="section-title">Find Your Path</h2>
+            <p class="section-description">Tailored training for every athlete's journey</p>
+        </div>
+
+        <div class="programs-grid">
+            <div class="program-clean-card">
+                <div class="program-icon-minimal">⚡</div>
+                <h3 class="program-clean-title">1-on-1 Training</h3>
+                <p class="program-clean-desc">Personalized coaching built around your specific goals and sport</p>
+                <a href="#" class="program-link">Learn more →</a>
+            </div>
+            <div class="program-clean-card">
+                <div class="program-icon-minimal">👥</div>
+                <h3 class="program-clean-title">Group Sessions</h3>
+                <p class="program-clean-desc">Train alongside peers in high-energy, competitive environments</p>
+                <a href="#" class="program-link">Learn more →</a>
+            </div>
+            <div class="program-clean-card">
+                <div class="program-icon-minimal">🎯</div>
+                <h3 class="program-clean-title">Sport-Specific</h3>
+                <p class="program-clean-desc">Technical skill development for your chosen sport</p>
+                <a href="#" class="program-link">Learn more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holiday Video Banner -->
+    <section class="holiday-video-banner" id="holidays">
+        <div class="holiday-video-bg">
+            <video autoplay muted loop playsinline>
+                <source src="https://cdn.pixabay.com/video/2023/08/16/176340-856265177_large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="holiday-content">
+            <h2>School Holiday Programs</h2>
+            <p>Intensive training camps where young athletes develop skills, build confidence, and have an incredible time</p>
+            <a href="#" class="cta-primary">View Next Program</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Athletes Trained</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Holiday Programs</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Evolutionized. Building champions, one athlete at a time.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.section-header, .video-card, .program-clean-card, .stat-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
